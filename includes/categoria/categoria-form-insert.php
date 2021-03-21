@@ -18,9 +18,6 @@
 
                               <div class="card-body">
 
-
-                                  
-
                                         <div class="form-group">
                                              <img src="assets/02.jpg" style="width: 70px;">
                                              <label>Upload</label>

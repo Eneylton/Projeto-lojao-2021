@@ -35,6 +35,38 @@ $('.carousel-indicators .active').removeClass('active');
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+
+<script>
+ 
+const allRanges = document.querySelectorAll(".range-wrap");
+allRanges.forEach((wrap) => {
+  const range = wrap.querySelector(".range");
+  const bubble = wrap.querySelector(".bubble");
+
+  range.addEventListener("input", () => {
+    setBubble(range, bubble);
+  });
+
+  // setting bubble on DOM load
+  setBubble(range, bubble);
+});
+
+function setBubble(range, bubble) {
+  const val = range.value;
+
+  const min = range.min || 0;
+  const max =  range.max || 100;
+
+  const offset = Number(((val - min) * 100) / (max - min));
+
+  bubble.textContent = val;
+
+  // yes, 14px is a magic number
+  bubble.style.left = `calc(${offset}% - 14px)`;
+}
+
+</script>
+
 <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script src="assets/plugins/jquery/jquery.min.js"></script>
 <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -51,5 +83,7 @@ $('.carousel-indicators .active').removeClass('active');
 <script src="assets/dist/js/adminlte.js"></script>
 <script src="assets/dist/js/demo.js"></script>
 <script src="assets/dist/js/pages/dashboard.js"></script>
+<script src="assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+<script src="assets/plugins/bootstrap-slider/bootstrap-slider.min.js"></script>
 </body>
 </html>

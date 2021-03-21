@@ -2,19 +2,29 @@
 
 $resultados = '';
 
-foreach ($categorias as $item) {
+foreach ($produtos2 as $item) {
 
    $resultados .= '<tr>
-                      <td><img style="width:80px; heigth:70px" src="'.$item->foto.'" class="img-thumbnail"></td>
-                      <td>' . $item->id . '</td>
-                      <td>' . $item->nome . '</td>
+   
+                      <td><img style="width:80px; heigth:70px;object-fit: contain;" src="' . $item->foto . '" class="img-thumbnail"></td>
+                      <td>' . $item->codigo . '</td>
+                      <td>' . $item->barra . '</td>
+                      <td>' . date('d/m/Y à\s H:i:s', strtotime($item->data)) . '</td>
+                      <td style="text-transform: uppercase;">' . $item->nome . '</td>
+                      <td style="text-transform: uppercase;">' . $item->categoria . '</td>
+                      <td>
+                      
+                      <span class="' . ($item->estoque <= 3 ? 'badge badge-danger' : 'badge badge-secondary') . '">' . $item->estoque . '</span>
+                      
+                      </td>
+                      <td> <button type="button" class="btn btn-dark"> R$ ' . number_format($item->valor_compra, "2", ",", ".") . '</button></td>
                       <td style="text-align: center;">
                         
-                       <a href="categoria-edit.php?id=' . $item->id . '">
+                       <a href="produto-edit.php?id=' . $item->id . '">
                          <button type="button" class="btn btn-primary"> <i class="fas fa-paint-brush"></i> </button>
                        </a>
 
-                       <a href="categoria-delete.php?id=' . $item->id . '">
+                       <a href="produto-delete.php?id=' . $item->id . '">
                        <button type="button" class="btn btn-danger"> <i class="fas fa-trash"></i></button>
                        </a>
 
@@ -72,7 +82,7 @@ foreach ($paginas as $key => $pagina) {
                               Pesquisar
 
                            </button>
-                          
+
                         </div>
 
 
@@ -86,8 +96,8 @@ foreach ($paginas as $key => $pagina) {
 
                   <div class="col d-flex align-items-end">
 
-                     <a href="categoria-insert.php">
-                        <button type="submit" class="btn btn-success"> <i class="fas fa-plus"></i> Adicionar nova categoria</button>
+                     <a href="produto-insert.php">
+                        <button type="submit" class="btn btn-success"> <i class="fas fa-plus"></i> Adicionar novo produto</button>
                      </a>
 
                   </div>
@@ -97,7 +107,12 @@ foreach ($paginas as $key => $pagina) {
                         <tr>
                            <th> IMAGEM </th>
                            <th> CÓDIGO </th>
+                           <th> BARRA </th>
+                           <th> DATA CADASTRO </th>
                            <th> NOME </th>
+                           <th> CATEGORIA </th>
+                           <th> QTD </th>
+                           <th> VALOR </th>
                            <th style="text-align: center;"> AÇÃO </th>
                         </tr>
                      </thead>

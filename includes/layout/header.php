@@ -16,8 +16,9 @@
   <link rel="stylesheet" href="assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.min.css">
-
+  <link rel="stylesheet" href="assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
   <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="assets/dist/css/style.css">
 
 
 

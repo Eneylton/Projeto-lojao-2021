@@ -30,7 +30,7 @@ use \App\Session\Login;
           <a href="categoria-list.php" class="nav-link">Categorias</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="cadastrar_materia.php" class="nav-link">Materias</a>
+          <a href="produto-list.php" class="nav-link">Produtos</a>
         </li>
       </ul>
 
