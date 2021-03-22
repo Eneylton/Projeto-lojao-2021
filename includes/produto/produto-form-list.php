@@ -1,11 +1,33 @@
 <?php
 
+$modal = '';
+$i = 0;
+
+if (isset($galerias)) {
+   foreach ($galerias as $item) {
+      $actives = '';
+
+      if ($i == 0) {
+         $actives = 'active';
+      }
+      $i++;
+
+      $modal .= '<div class="carousel-item ' . $actives . '">
+                        
+                  <img style="width:350px;height:300px" class="d-block w-100" src="' . $item->foto . '" alt="First slide">
+                     
+                </div> ';
+   }
+}
+
 $resultados = '';
 
 foreach ($produtos2 as $item) {
 
    $resultados .= '<tr>
-   
+                      <td><a href="produto-list.php?id=' . $item->id . '" class="btn btn-info"  data-toggle="modal"  data-target="#modal-default" >
+                      Galeria
+                      </a></td>
                       <td><img style="width:80px; heigth:70px;object-fit: contain;" src="' . $item->foto . '" class="img-thumbnail"></td>
                       <td>' . $item->codigo . '</td>
                       <td>' . $item->barra . '</td>
@@ -19,7 +41,11 @@ foreach ($produtos2 as $item) {
                       </td>
                       <td> <button type="button" class="btn btn-dark"> R$ ' . number_format($item->valor_compra, "2", ",", ".") . '</button></td>
                       <td style="text-align: center;">
-                        
+                      
+                      <a href="produto-list.php?id=' . $item->id . '">
+                         <button type="button" class="btn btn-warning"> <i class="fas fa-images"></i></button>
+                       </a>
+
                        <a href="produto-edit.php?id=' . $item->id . '">
                          <button type="button" class="btn btn-primary"> <i class="fas fa-paint-brush"></i> </button>
                        </a>
@@ -105,6 +131,7 @@ foreach ($paginas as $key => $pagina) {
                   <table id="example1" class="table table-bordered table-hover table-striped">
                      <thead>
                         <tr>
+                           <th> GALERIA </th>
                            <th> IMAGEM </th>
                            <th> CÓDIGO </th>
                            <th> BARRA </th>
@@ -125,6 +152,38 @@ foreach ($paginas as $key => $pagina) {
 
             </div>
 
+         </div>
+
+      </div>
+
+   </div>
+
+   <div class="modal fade" id="modal-default">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">Default Modal</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width:350px;height:350px">
+               <div class="carousel-inner">
+                  <?= $modal ?>
+               </div>
+               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+               </a>
+            </div>
+            <div class="modal-footer justify-content-between">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
          </div>
 
       </div>

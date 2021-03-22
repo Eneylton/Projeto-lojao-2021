@@ -14,8 +14,6 @@ use   \App\File\Upload;
 
 Login::requireLogin();
 
-
-
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 
     header('location: index.php?status=error');

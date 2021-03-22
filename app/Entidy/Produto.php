@@ -90,7 +90,6 @@ public static function getQtdReal($where = null){
     return (new Database ('produtos'))->relacionadas($where,null,null,'COUNT(*) as qtd')
                                    ->fetchObject()
                                    ->qtd;
-
 }
 
 

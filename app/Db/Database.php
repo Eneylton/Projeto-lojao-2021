@@ -168,4 +168,12 @@ class Database
 
         return $this->execute($query);
     }
+
+    public function consultar($id){
+            
+        $query = 'SELECT * FROM galerias as g WHERE '.$id;
+
+        return $this->execute($query);
+                
+    }
 }
